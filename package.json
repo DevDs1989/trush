@@ -3,8 +3,12 @@
   "version": "1.0.3",
   "description": "Speedrun your TODOs, FIXMEs, and BUGs.",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevDs1989/trush.git"
+  },
   "bin": {
-    "trush": "./src/index.ts"
+    "trush": "src/index.ts"
   },
   "files": [
     "src"
