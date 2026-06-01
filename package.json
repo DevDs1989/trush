@@ -1,10 +1,10 @@
 {
-  "name": "t-rush",
+  "name": "@devds1989/t-rush",
   "version": "1.0.0",
   "description": "Speedrun your TODOs, FIXMEs, and BUGs.",
   "type": "module",
   "bin": {
-    "t-rush": "./src/index.ts"
+    "trush": "./src/index.ts"
   },
   "files": [
     "src"

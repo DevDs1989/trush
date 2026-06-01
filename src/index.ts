@@ -37,8 +37,6 @@ program
     });
   });
 
-// ── stats ─────────────────────────────────────────────────────────────────────
-
 program
   .command("stats")
   .description("show streak, completion rate and performance")
