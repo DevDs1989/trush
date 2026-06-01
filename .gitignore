@@ -1,0 +1,26 @@
+# dependencies
+node_modules/
+
+# typescript
+*.js.map
+*.d.ts
+
+# env
+.env
+.env.*
+
+# os
+.DS_Store
+Thumbs.db
+
+# editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# test artifacts
+/tmp/trush-*
+
+# data (local only)
+~/.trush/
