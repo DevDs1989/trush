@@ -193,7 +193,7 @@ src/
 ├── editor.ts         # editor spawn and line targeting
 ├── validator.ts      # post-edit comment removal check
 ├── timer.ts          # run timer
-├── store.ts          # read/write ~/.todarun/data.json
+├── store.ts          # read/write ~/.t-rush/data.json
 ├── streak.ts         # streak and stats logic
 ├── ui.ts             # chalk styles and result card
 └── commands/
