@@ -26,5 +26,8 @@ jobs:
       - name: Type check
         run: npx tsc --noEmit
 
+      - name: Build
+        run: npm run build
+
       - name: Publish to npm
         run: npm publish --access public

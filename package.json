@@ -8,13 +8,15 @@
     "url": "git+https://github.com/DevDs1989/trush.git"
   },
   "bin": {
-    "trush": "src/index.ts"
+    "trush": "./dist/index.js"
   },
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
-    "dev": "tsx src/index.ts"
+    "dev": "tsx src/index.ts",
+    "build": "tsup",
+    "prepublishOnly": "tsup"
   },
   "keywords": [
     "todo",
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "@types/node": "^25.8.0",
+    "tsup": "^8.5.1",
     "tsx": "^4.22.1",
     "typescript": "^6.0.3"
   }

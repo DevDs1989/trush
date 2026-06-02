@@ -24,3 +24,6 @@ Thumbs.db
 
 # data (local only)
 ~/.trush/
+
+#builds
+dist/
