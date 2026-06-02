@@ -24,6 +24,8 @@ Every codebase has them. `TODO: fix this later`. `FIXME: crashes on edge case`. 
 
 t-rush turns fixing them into a focused, timed session. Pick a comment, open your editor, fix it, confirm it is done. Streak goes up. Quit halfway and the streak resets. Simple.
 
+
+
 ---
 
 ## Features
@@ -37,6 +39,7 @@ t-rush turns fixing them into a focused, timed session. Pick a comment, open you
 - **Stats** show completion rate, avg time, fastest run, and top repo
 - **Local first** stores everything in `~/.t-rush/data.json` with no accounts and no telemetry
 - **Cross-platform** on Linux, macOS, and Windows
+
 
 ---
 
@@ -64,44 +67,15 @@ trush start ~/projects/my-app
 
 ## How a run works
 
-```
-$ trush start
+<img width="1200" height="600" alt="demo" src="https://github.com/user-attachments/assets/75b909b8-e835-41f3-8ff4-112a3ef1c6bc" />
 
-  Scanning repo...
-  Found 14 items
-
-  ? Pick a TODO, FIXME, or BUG
-  > [ FIXME ] src/auth/session.ts:118   refresh token logic
-    [ TODO  ] src/parser/index.ts:42    handle empty input edge case
-    [ BUG   ] src/api/routes.ts:87      rate limiting broken on retry
-
-  Timer running, close editor to stop
-  14m 22s
-
-  Validating...
-  FIXME resolved in src/auth/session.ts
-
-  ? Did you complete it? Yes
-
-  ──────────────────────────────────────────────────
-
-  [ FIXME ] resolved
-  src/auth/session.ts:118
-  "refresh token logic"
-
-  14m 22s
-
-  Streak:   5  (longest: 12)
-
-  TODO: 18   FIXME: 13   BUG: 4
-  Completed: 35   Aborted: 4
-
-  ──────────────────────────────────────────────────
-```
 
 ---
 
 ## Commands
+
+<img width="1000" height="600" alt="demo" src="https://github.com/user-attachments/assets/da18aaa1-015d-4851-b3a3-4cc039047ea4" />
+
 
 ### `trush start [dir]`
 
@@ -141,9 +115,6 @@ View your streak, completion rate, average time, and more.
 ```bash
 trush stats
 ```
-<img width="1330" height="788" alt="image" src="https://github.com/user-attachments/assets/067fa221-df61-49be-95fe-69d0d7420a93" />
-
-
 ---
 
 ## Streak system
