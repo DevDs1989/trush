@@ -1,7 +1,7 @@
 import { spawnSync } from "node:child_process";
 import type { SpawnSyncOptions } from "node:child_process";
 import { EditorConfig, SupportedEditors } from "./types/types";
-
+import { getEditor } from "./config.js";
 const EDITORS: Record<SupportedEditors, EditorConfig> = {
   nvim: {
     bin: {
@@ -25,12 +25,11 @@ function getPlatform(): Platform {
 }
 
 function detectEditor(): SupportedEditors {
-  const env = process.env.EDITOR ?? "";
+  const configured = getEditor();
+  const env = configured ?? process.env.EDITOR ?? "";
 
   if (env.includes("nvim")) return "nvim";
   if (env.includes("code")) return "code";
-
-  // fallback: default per platform
   return getPlatform() === "win32" ? "code" : "nvim";
 }
 

@@ -4,6 +4,7 @@ import { Command } from "commander";
 import { start } from "./commands/start.js";
 import { history } from "./commands/history.js";
 import { stats } from "./commands/stats.js";
+import { config } from "./commands/config.js";
 
 const program = new Command();
 
@@ -42,6 +43,14 @@ program
   .description("show streak, completion rate and performance")
   .action(() => {
     stats();
+  });
+
+program
+  .command("config")
+  .description("view or update t-rush config")
+  .option("-e, --editor <path>", "set default editor binary or path")
+  .action((opts) => {
+    config(opts);
   });
 
 program.parse();

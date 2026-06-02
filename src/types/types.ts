@@ -68,3 +68,7 @@ export type ValidationResult = {
   status: ValidationStatus;
   message: string;
 };
+
+export type AppConfig = {
+  editor?: string;
+};
