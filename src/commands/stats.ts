@@ -1,8 +1,5 @@
 import chalk from "chalk";
-import { loadData } from "../store.js";
-import { getStreak, getStats } from "../streak.js";
-import { CommentType } from "../types/types.js";
-import type { RunRecord } from "../types/types.js";
+import { loadData, getStreak, getStats, CommentType, RunRecord } from "@devds1989/trush-core";
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 

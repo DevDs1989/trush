@@ -1,4 +1,4 @@
-import { TimerResult } from "./types/types";
+import { TimerResult } from "@devds1989/trush-core";
 
 export function formatDuration(seconds: number): string {
   const h = Math.floor(seconds / 3600);
