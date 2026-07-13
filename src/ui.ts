@@ -10,6 +10,8 @@ export function badge(type: TodoItem["type"]): string {
       return chalk.bgYellow.black.bold(` FIXME `);
     case CommentType.BUG:
       return chalk.bgRed.white.bold(` BUG `);
+    default:
+      return chalk.bgGray.white.bold(` ${type} `);
   }
 }
 
@@ -45,6 +47,8 @@ export function formatValidation(result: ValidationResult): string {
       return warn(result.message);
     case "missing":
       return info(result.message);
+    default:
+      return info(result.message || "Unknown validation status");
   }
 }
 

@@ -22,7 +22,7 @@ async function pickTodo(items: TodoItem[]): Promise<TodoItem> {
     source: async (input) => {
       const term = (input ?? "").trim();
       const results = searchTodos(items, term);
-      return results.map((item) => ({
+      return results.map((item: TodoItem) => ({
         name: formatTodoChoice(item),
         value: item,
       }));
