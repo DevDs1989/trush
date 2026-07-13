@@ -1,7 +1,6 @@
 import chalk from "chalk";
-import { loadData } from "../store.js";
+import { loadData, RunRecord } from "@devds1989/trush-core";
 import { badge } from "../ui.js";
-import type { RunRecord } from "../types/types.js";
 
 function formatDate(iso: string): string {
   const d = new Date(iso);

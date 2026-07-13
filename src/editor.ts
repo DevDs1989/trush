@@ -1,6 +1,6 @@
 import { spawnSync } from "node:child_process";
 import type { SpawnSyncOptions } from "node:child_process";
-import { EditorConfig, SupportedEditors } from "./types/types";
+import { EditorConfig, SupportedEditors } from "@devds1989/trush-core";
 import { getEditor } from "./config.js";
 const EDITORS: Record<SupportedEditors, EditorConfig> = {
   nvim: {
@@ -8,14 +8,14 @@ const EDITORS: Record<SupportedEditors, EditorConfig> = {
       linux: "nvim",
       win32: "nvim.exe",
     },
-    args: (file, line) => [`+${line}`, file],
+    args: (file: string, line: number) => [`+${line}`, file],
   },
   code: {
     bin: {
       linux: "code",
       win32: "code.cmd",
     },
-    args: (file, line) => ["--goto", `${file}:${line}`],
+    args: (file: string, line: number) => ["--goto", `${file}:${line}`],
   },
 };
 type Platform = "linux" | "win32";

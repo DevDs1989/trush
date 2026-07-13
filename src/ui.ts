@@ -1,11 +1,5 @@
 import chalk from "chalk";
-import type {
-  StreakInfo,
-  StatsInfo,
-  TodoItem,
-  ValidationResult,
-} from "./types/types.js";
-import { CommentType } from "./types/types.js";
+import { StreakInfo, StatsInfo, TodoItem, ValidationResult, CommentType } from "@devds1989/trush-core";
 
 // colors
 export function badge(type: TodoItem["type"]): string {
@@ -16,6 +10,8 @@ export function badge(type: TodoItem["type"]): string {
       return chalk.bgYellow.black.bold(` FIXME `);
     case CommentType.BUG:
       return chalk.bgRed.white.bold(` BUG `);
+    default:
+      return chalk.bgGray.white.bold(` ${type} `);
   }
 }
 
@@ -51,6 +47,8 @@ export function formatValidation(result: ValidationResult): string {
       return warn(result.message);
     case "missing":
       return info(result.message);
+    default:
+      return info(result.message || "Unknown validation status");
   }
 }
 
