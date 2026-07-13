@@ -1,6 +1,6 @@
 import { spawnSync } from "node:child_process";
 import type { SpawnSyncOptions } from "node:child_process";
-import { EditorConfig, SupportedEditors } from "./types/types";
+import { EditorConfig, SupportedEditors } from "@devds1989/trush-core";
 import { getEditor } from "./config.js";
 const EDITORS: Record<SupportedEditors, EditorConfig> = {
   nvim: {

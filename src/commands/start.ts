@@ -3,12 +3,9 @@ import search from "@inquirer/search";
 import chalk from "chalk";
 import path from "path";
 
-import { scanRepo } from "../scanner.js";
+import { scanRepo, searchTodos, validateTodo, addRun, generateId, getRepoName, incrementStreak, resetStreak, getStats } from "@devds1989/trush-core";
 import { openEditor } from "../editor.js";
-import { validateTodo } from "../validator.js";
 import { createTimer } from "../timer.js";
-import { addRun, generateId, getRepoName } from "../store.js";
-import { incrementStreak, resetStreak, getStats } from "../streak.js";
 import {
   badge,
   formatTodoChoice,
@@ -17,24 +14,18 @@ import {
   printNoTodos,
   warn,
 } from "../ui.js";
-import type { TodoItem } from "../types/types.js";
+import type { TodoItem } from "@devds1989/trush-core";
 
 async function pickTodo(items: TodoItem[]): Promise<TodoItem> {
   const answer = await search<TodoItem>({
     message: "Pick a TODO, FIXME, or BUG to fix",
     source: async (input) => {
-      const term = (input ?? "").toLowerCase();
-      return items
-        .filter(
-          (item) =>
-            item.text.toLowerCase().includes(term) ||
-            item.file.toLowerCase().includes(term) ||
-            item.type.toLowerCase().includes(term),
-        )
-        .map((item) => ({
-          name: formatTodoChoice(item),
-          value: item,
-        }));
+      const term = (input ?? "").trim();
+      const results = searchTodos(items, term);
+      return results.map((item) => ({
+        name: formatTodoChoice(item),
+        value: item,
+      }));
     },
   });
 
@@ -55,6 +46,7 @@ async function confirmAnyway(): Promise<boolean> {
 }
 
 export async function start(cwd: string = process.cwd()): Promise<void> {
+  try {
   // 1. scan
   const scanSpinner = createSpinner("Scanning repo...").start();
   const items = await scanRepo(cwd);
@@ -142,4 +134,11 @@ export async function start(cwd: string = process.cwd()): Promise<void> {
     stats,
     completed,
   });
+  } catch (err: any) {
+    if (err.name === "ExitPromptError") {
+      console.log(chalk.red("\nAborted by user."));
+      process.exit(1);
+    }
+    throw err;
+  }
 }

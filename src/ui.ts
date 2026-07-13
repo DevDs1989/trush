@@ -1,11 +1,5 @@
 import chalk from "chalk";
-import type {
-  StreakInfo,
-  StatsInfo,
-  TodoItem,
-  ValidationResult,
-} from "./types/types.js";
-import { CommentType } from "./types/types.js";
+import { StreakInfo, StatsInfo, TodoItem, ValidationResult, CommentType } from "@devds1989/trush-core";
 
 // colors
 export function badge(type: TodoItem["type"]): string {
