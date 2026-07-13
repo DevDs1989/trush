@@ -8,7 +8,7 @@
     "url": "git+https://github.com/DevDs1989/trush.git"
   },
   "bin": {
-    "trush": "./dist/index.js"
+    "trush": "dist/index.js"
   },
   "files": [
     "dist"
