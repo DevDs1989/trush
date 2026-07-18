@@ -16,7 +16,8 @@ export function badge(type: TodoItem["type"]): string {
 }
 
 export function formatTodoChoice(item: TodoItem): string {
-  return `${badge(item.type)} ${chalk.dim(item.file)}${chalk.dim(":") + chalk.cyan(item.line)} ${chalk.white(item.text)}`;
+  const ageStr = item.age_days !== undefined ? chalk.gray(` [${item.age_days}d]`) : "";
+  return `${badge(item.type)}${ageStr} ${chalk.dim(item.file)}${chalk.dim(":") + chalk.cyan(item.line)} ${chalk.white(item.text)}`;
 }
 
 export function label(text: string): string {
