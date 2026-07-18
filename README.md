@@ -24,6 +24,9 @@ Every codebase has them. `TODO: fix this later`. `FIXME: crashes on edge case`. 
 
 t-rush turns fixing them into a focused, timed session. Pick a comment, open your editor, fix it, confirm it is done. Streak goes up. Quit halfway and the streak resets. Simple.
 
+### 🤖 Want to let AI fix it for you?
+Try **[t-rush-mcp](https://github.com/DevDs1989/trush-mcp)** to expose your TODOs directly to AI Agents (like Antigravity or Claude) so they can find, prioritize, and resolve issues autonomously while updating your local streak!
+
 
 
 ---
