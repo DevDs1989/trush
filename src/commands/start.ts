@@ -50,6 +50,9 @@ export async function start(cwd: string = process.cwd()): Promise<void> {
   // 1. scan
   const scanSpinner = createSpinner("Scanning repo...").start();
   const items = await scanRepo(cwd);
+  
+  // Sort by age_days descending to find the oldest debt (defaulting to 0 if undefined)
+  items.sort((a, b) => (b.age_days || 0) - (a.age_days || 0));
 
   if (items.length === 0) {
     scanSpinner.success({ text: "Scan complete" });
